@@ -18,5 +18,6 @@ message ArrayDescriptor {
 message FormatDescriptor {
   string name = 1;
   repeated ArrayDescriptor content = 2;
+  // If > content then the final content entry is interpreted as either open (Final ArrayDescriptor has length = 0) or reserved space. I
   uint32 max_size = 3;
 }
