@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package fixedlength;
+
+option go_package = "github.com/accretional/proto-fixedlength/pb";
+
+
+message FieldDescriptor {
+  string type = 1;
+  uint32 length = 2;
+}
+
+message ArrayDescriptor {
+  FieldDescriptor field_type = 1;
+  uint32 length = 2;
+}
+
+message FormatDescriptor {
+  string name = 1;
+  repeated ArrayDescriptor content = 2;
+  uint32 max_size = 3;
+}
