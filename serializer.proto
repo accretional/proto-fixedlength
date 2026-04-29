@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package fixedlength;
+
+option go_package = "github.com/accretional/proto-fixedlength/pb";
+
+message FixedLengthMessage {
+  string type = 1;
+  bytes contents = 2;
+}
+
+// Fixed Length internally :)
+service Serializer {
+  rpc Serialize(google.protobuf.Any) returns(FixedLengthMessage);
+  rpc Deserialize(FixedLengthMessage) returns(google.protobuf.Any);
+}
+  
